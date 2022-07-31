@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="conveniencePayService" class="com.convenience.pay.service.ConveniencePayService">
+        <constructor-arg name="paymentInterfaceSet" index="0">
+            <set>
+                <ref bean="moneyAdapter"/>
+                <ref bean="cardAdapter"/>
+            </set>
+        </constructor-arg>
+        <constructor-arg name="discountInterface" index="1" ref="discountByConvenience"/>
+    </bean>
+
+    <bean id="cardAdapter" class="com.convenience.pay.service.CardAdapter"/>
+    <bean id="moneyAdapter" class="com.convenience.pay.service.MoneyAdapter"/>
+    <bean id="discountByConvenience" class="com.convenience.pay.service.DiscountByConvenience"/>
+    <bean id="discountByPayMethod" class="com.convenience.pay.service.DiscountByPayMethod"/>
+</beans>
