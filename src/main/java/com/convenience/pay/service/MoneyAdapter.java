@@ -5,7 +5,9 @@ import com.convenience.pay.type.CancelPaymentResult;
 import com.convenience.pay.type.MoneyUseCancelResult;
 import com.convenience.pay.type.MoneyUseResult;
 import com.convenience.pay.type.PaymentResult;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MoneyAdapter implements PaymentInterface{
     public MoneyUseResult use(Integer payAmount){
         System.out.println("MoneyAdapter.use" + payAmount);

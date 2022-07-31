@@ -1,7 +1,9 @@
 package com.convenience.pay.service;
 
 import com.convenience.pay.type.PayCancelResult;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PayCancelResponse {
     private PayCancelResult payCancelResult;
     private Integer payCanceledAmount;

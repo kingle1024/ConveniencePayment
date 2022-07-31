@@ -5,7 +5,12 @@ import com.convenience.pay.type.CancelPaymentResult;
 import com.convenience.pay.type.CardUseCancelResult;
 import com.convenience.pay.type.CardUseResult;
 import com.convenience.pay.type.PaymentResult;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+@Component
 public class CardAdapter implements PaymentInterface{
     // 1. 인증
     public void authorization(){

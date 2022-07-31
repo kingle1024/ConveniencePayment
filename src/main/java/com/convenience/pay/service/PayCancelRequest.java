@@ -2,7 +2,9 @@ package com.convenience.pay.service;
 
 import com.convenience.pay.dto.PayMethodType;
 import com.convenience.pay.type.ConvenienceType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PayCancelRequest {
     // 결제 수단
     private PayMethodType payMethodType;
