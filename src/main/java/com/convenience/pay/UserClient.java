@@ -9,14 +9,17 @@ import com.convenience.pay.service.PayCancelRequest;
 import com.convenience.pay.service.PayCancelResponse;
 import com.convenience.pay.type.ConvenienceType;
 import com.convenience.pay.type.PayResult;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class UserClient {
     public static void main(String[] args) {
         // 사용자 -> 편결이 -> 머니
-        ApplicationConfig applicationConfig = new ApplicationConfig();
-//        ConveniencePayService conveniencePayService = new ConveniencePayService();
-        ConveniencePayService conveniencePayService = applicationConfig.conveniencePayServiceDiscountPayMethod();
-
+        ApplicationContext applicationContext =
+                new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        ConveniencePayService conveniencePayService =
+                applicationContext.getBean("conveniencePayService",
+                ConveniencePayService.class);
 
         // G25, 결제 1000원
         Integer payAmount = 50;
