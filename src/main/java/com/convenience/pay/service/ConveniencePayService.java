@@ -13,7 +13,7 @@ public class ConveniencePayService {
     private final Map<PayMethodType, PaymentInterface> paymentInterfaceMap =
             new HashMap<>();
 //    private final DiscountInterface discountInterface = new DiscountByPayMethod();
-    private final DiscountInterface discountInterface = new DiscountByConvenience();
+    private final DiscountInterface discountInterface;
     public ConveniencePayService(Set<PaymentInterface> paymentInterfaceSet,
                                  DiscountInterface discountInterface){
         paymentInterfaceSet.forEach( // 정보를 읽어와서 각각 저장해준다.
@@ -22,6 +22,7 @@ public class ConveniencePayService {
                         paymentInterface
                 )
         );
+        this.discountInterface = discountInterface;
     }
 
     public PayResponse pay(PayRequest payRequest){
@@ -30,8 +31,8 @@ public class ConveniencePayService {
 
         Integer disCountedAmount =
                 discountInterface.getDiscountedAmount(payRequest); // 할인 처리
-        PaymentResult payment
-                = paymentInterface.payment(disCountedAmount);
+        PaymentResult payment =
+                paymentInterface.payment(disCountedAmount);
 
         // fail test
         if(payment == PaymentResult.PAYMENT_FAIL){
