@@ -8,7 +8,6 @@ import com.convenience.pay.service.ConveniencePayService;
 import com.convenience.pay.service.PayCancelRequest;
 import com.convenience.pay.service.PayCancelResponse;
 import com.convenience.pay.type.ConvenienceType;
-import com.convenience.pay.type.PayResult;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
